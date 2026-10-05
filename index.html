@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinh Huong Linh | Pixel Quest Portfolio</title>
+  
+  <!-- Pixel Fonts (Press Start 2P & Silkscreen) + Clean Modern Body Font (Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Tailwind Configuration for Pastel Mario Pixel Aesthetic -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pastel: {
+              cream: '#FFF9F2',
+              peach: '#FFE7DA',
+              pink: '#FFD6E0',
+              lavender: '#E8DFF5',
+              mint: '#D8F3DC',
+              sky: '#D6EEFF',
+              yellow: '#FFF0C2',
+              terracotta: '#E07A5F',
+              brick: '#D96B50',
+              brown: '#3D2B1F',
+              wood: '#6B4F3B',
+              dark: '#261C14',
+            }
+          },
+          fontFamily: {
+            pixel: ['"Press Start 2P"', 'monospace'],
+            pixelAlt: ['"Silkscreen"', 'monospace'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'pixel-sm': '3px 3px 0px #3D2B1F',
+            'pixel': '4px 4px 0px #3D2B1F',
+            'pixel-lg': '6px 6px 0px #3D2B1F',
+            'pixel-xl': '8px 8px 0px #3D2B1F',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FFF9F2;
+      color: #3D2B1F;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Chunky Pixel Borders */
+    .pixel-box {
+      border: 3px solid #3D2B1F;
+      box-shadow: 4px 4px 0px #3D2B1F;
+      border-radius: 6px;
+    }
+
+    .pixel-box-lg {
+      border: 4px solid #3D2B1F;
+      box-shadow: 6px 6px 0px #3D2B1F;
+      border-radius: 8px;
+    }
+
+    .pixel-btn {
+      border: 3px solid #3D2B1F;
+      box-shadow: 4px 4px 0px #3D2B1F;
+      transition: all 0.15s ease-in-out;
+      cursor: pointer;
+    }
+
+    .pixel-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #3D2B1F;
+    }
+
+    .pixel-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px #3D2B1F;
+    }
+
+    /* Mario Floating Animations */
+    @keyframes floatCloudSlow {
+      0% { transform: translateX(0px); }
+      50% { transform: translateX(25px); }
+      100% { transform: translateX(0px); }
+    }
+
+    @keyframes floatCoinBob {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(3deg); }
+    }
+
+    @keyframes floatStarGlow {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-10px) scale(1.08); }
+    }
+
+    @keyframes questionBoxBump {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .animate-cloud {
+      animation: floatCloudSlow 12s ease-in-out infinite;
+    }
+
+    .animate-cloud-reverse {
+      animation: floatCloudSlow 16s ease-in-out infinite reverse;
+    }
+
+    .animate-bob {
+      animation: floatCoinBob 3s ease-in-out infinite;
+    }
+
+    .animate-star {
+      animation: floatStarGlow 4s ease-in-out infinite;
+    }
+
+    .animate-box-bump {
+      animation: questionBoxBump 2.5s ease-in-out infinite;
+    }
+
+    /* Subtle Retro CRT Scanlines */
+    .scanlines {
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(61, 43, 31, 0.02) 50%,
+        rgba(61, 43, 31, 0.02)
+      );
+      background-size: 100% 4px;
+    }
+  </style>
+</head>
+
+<body class="selection:bg-pastel-pink selection:text-pastel-dark relative antialiased min-h-screen scanlines overflow-x-hidden">
+
+  <!-- ==================== FLOATING MARIO PIXEL ELEMENTS ==================== -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <!-- Floating Pastel Clouds -->
+    <div class="absolute top-14 left-8 animate-cloud opacity-80">
+      <div class="flex items-end">
+        <div class="w-8 h-8 bg-white border-2 border-pastel-brown rounded-t-lg"></div>
+        <div class="w-12 h-12 bg-white border-2 border-pastel-brown rounded-t-xl -mx-2"></div>
+        <div class="w-10 h-8 bg-white border-2 border-pastel-brown rounded-t-lg"></div>
+      </div>
+      <div class="w-24 h-4 bg-white border-x-2 border-b-2 border-pastel-brown rounded-b-md shadow-pixel-sm"></div>
+    </div>
+
+    <div class="absolute top-36 right-12 animate-cloud-reverse opacity-75 hidden md:block">
+      <div class="flex items-end">
+        <div class="w-10 h-10 bg-white border-2 border-pastel-brown rounded-t-lg"></div>
+        <div class="w-16 h-14 bg-white border-2 border-pastel-brown rounded-t-xl -mx-2"></div>
+        <div class="w-12 h-9 bg-white border-2 border-pastel-brown rounded-t-lg"></div>
+      </div>
+      <div class="w-32 h-5 bg-white border-x-2 border-b-2 border-pastel-brown rounded-b-md shadow-pixel-sm"></div>
+    </div>
+
+    <!-- Floating Pastel Coins -->
+    <div class="absolute top-1/4 right-[18%] animate-bob hidden lg:block">
+      <div class="w-8 h-10 bg-pastel-yellow border-2 border-pastel-brown rounded-full flex items-center justify-center shadow-pixel-sm">
+        <div class="w-2 h-6 border-x-2 border-pastel-brown bg-[#FFF8DB]"></div>
+      </div>
+    </div>
+
+    <div class="absolute top-2/3 left-[4%] animate-bob hidden lg:block" style="animation-delay: 1.5s;">
+      <div class="w-8 h-10 bg-pastel-yellow border-2 border-pastel-brown rounded-full flex items-center justify-center shadow-pixel-sm">
+        <div class="w-2 h-6 border-x-2 border-pastel-brown bg-[#FFF8DB]"></div>
+      </div>
+    </div>
+
+    <!-- Floating Super Star (Power-up) -->
+    <div class="absolute top-1/2 right-[5%] animate-star hidden lg:block">
+      <div class="w-10 h-10 bg-[#FFE066] border-2 border-pastel-brown rounded-md flex items-center justify-center shadow-pixel relative">
+        <span class="text-sm">⭐</span>
+      </div>
+    </div>
+
+    <!-- Floating Question Block (?) -->
+    <div class="absolute top-48 left-[15%] animate-box-bump hidden lg:block">
+      <div class="w-10 h-10 bg-pastel-yellow border-2 border-pastel-brown rounded-md flex items-center justify-center shadow-pixel font-pixel text-xs text-pastel-brown font-bold">
+        ?
+      </div>
+    </div>
+
+    <div class="absolute bottom-28 right-[12%] animate-box-bump hidden lg:block" style="animation-delay: 1.2s;">
+      <div class="w-10 h-10 bg-pastel-pink border-2 border-pastel-brown rounded-md flex items-center justify-center shadow-pixel font-pixel text-xs text-pastel-brown font-bold">
+        ?
+      </div>
+    </div>
+
+    <!-- Floating 1UP Mushroom -->
+    <div class="absolute bottom-40 left-[8%] animate-bob hidden lg:block" style="animation-delay: 0.8s;">
+      <div class="w-10 h-10 bg-pastel-mint border-2 border-pastel-brown rounded-t-xl flex flex-col items-center justify-between shadow-pixel p-1">
+        <div class="flex space-x-1">
+          <div class="w-1.5 h-1.5 bg-white rounded-full"></div>
+          <div class="w-1.5 h-1.5 bg-white rounded-full"></div>
+        </div>
+        <div class="w-6 h-3 bg-white border-2 border-pastel-brown rounded-b-md"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== RETRO GAME HEADER / NAV ==================== -->
+  <header class="sticky top-0 z-40 bg-pastel-cream/95 backdrop-blur-md border-b-4 border-pastel-brown">
+    <!-- Top Retro Game Status Bar -->
+    <div class="bg-pastel-peach/90 border-b-2 border-pastel-brown px-4 py-1.5 text-[10px] sm:text-xs font-pixel flex items-center justify-between text-pastel-brown overflow-x-auto">
+      <div class="flex items-center space-x-2">
+        <span class="text-pastel-terracotta">PLAYER:</span>
+        <span class="font-bold">HUONG LINH</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <span class="flex items-center gap-1">
+          <span class="inline-block w-2.5 h-3 bg-pastel-yellow border border-pastel-brown rounded-full"></span>
+          <span>&times; 99</span>
+        </span>
+        <span class="hidden sm:inline">WORLD: 2-0</span>
+        <span>FTU &bull; BIDV</span>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 h-18 py-3 flex items-center justify-between">
+      
+      <!-- Brand Logo in Pixel Style -->
+      <a href="#" class="group flex items-center space-x-3">
+        <div class="w-11 h-11 bg-pastel-pink border-3 border-pastel-brown rounded-lg shadow-pixel flex items-center justify-center font-pixel text-sm text-pastel-brown font-bold group-hover:bg-pastel-yellow group-hover:scale-105 transition-all">
+          HL
+        </div>
+        <div>
+          <span class="font-pixel text-xs sm:text-sm tracking-tight text-pastel-brown group-hover:text-pastel-terracotta transition-colors block">
+            DINH HUONG LINH
+          </span>
+          <span class="text-[11px] font-pixelAlt text-pastel-terracotta font-semibold uppercase tracking-wider">
+            ★ Level 20 Adventurer ★
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Pixel Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-3 text-xs font-pixel text-pastel-brown">
+        <a href="#about" class="px-3 py-2 rounded-md hover:bg-pastel-peach transition-colors">About</a>
+        <a href="#experience" class="px-3 py-2 rounded-md hover:bg-pastel-peach transition-colors">Experience</a>
+        <a href="#projects" class="px-3 py-2 rounded-md hover:bg-pastel-peach transition-colors">Events</a>
+        <a href="#skills" class="px-3 py-2 rounded-md hover:bg-pastel-peach transition-colors">Skills</a>
+        <a href="#interests" class="px-3 py-2 rounded-md hover:bg-pastel-peach transition-colors">Travel</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="hidden sm:flex items-center space-x-3">
+        <a href="#contact" class="pixel-btn px-4 py-2 bg-pastel-yellow text-pastel-brown font-pixel text-[11px] rounded-md flex items-center space-x-1.5">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+          <span>Contact</span>
+        </a>
+        <a href="#contact" class="pixel-btn px-4 py-2 bg-pastel-terracotta text-white font-pixel text-[11px] rounded-md flex items-center space-x-1.5">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Resume</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Trigger -->
+      <button id="mobile-menu-btn" class="md:hidden pixel-btn p-2 bg-pastel-peach text-pastel-brown rounded-md">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t-2 border-pastel-brown bg-pastel-cream px-6 py-4 space-y-3 font-pixel text-xs">
+      <a href="#about" class="block py-1 hover:text-pastel-terracotta">About & Education</a>
+      <a href="#experience" class="block py-1 hover:text-pastel-terracotta">BIDV & h+ haus Experience</a>
+      <a href="#projects" class="block py-1 hover:text-pastel-terracotta">Events & Projects</a>
+      <a href="#skills" class="block py-1 hover:text-pastel-terracotta">Skills & Languages</a>
+      <a href="#interests" class="block py-1 hover:text-pastel-terracotta">Travel & Interests</a>
+      <a href="#contact" class="block py-1 text-pastel-terracotta">Connect & Resume</a>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+    
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="py-12 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <!-- Left Content Column -->
+      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        
+        <!-- Retro Status Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-pastel-peach border-2 border-pastel-brown shadow-pixel-sm font-pixel text-[10px] text-pastel-brown">
+          <span class="w-2.5 h-2.5 bg-pastel-mint border border-pastel-brown rounded-full animate-ping"></span>
+          <span>PRESS START &bull; OPEN FOR OPPORTUNITIES</span>
+        </div>
+
+        <div class="space-y-2">
+          <h2 class="font-pixel text-xs sm:text-sm text-pastel-terracotta tracking-wider">
+            HELLO WORLD! I AM
+          </h2>
+          <h1 class="font-pixel text-2xl sm:text-4xl lg:text-5xl text-pastel-brown leading-tight tracking-tight">
+            DINH HUONG LINH
+          </h1>
+        </div>
+
+        <!-- Subtitle Pill Badges -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1 font-pixelAlt text-xs font-bold">
+          <span class="px-3 py-1 bg-pastel-sky border-2 border-pastel-brown rounded-md shadow-pixel-sm text-pastel-brown">
+            🏦 Banking Intern @ BIDV
+          </span>
+          <span class="px-3 py-1 bg-pastel-pink border-2 border-pastel-brown rounded-md shadow-pixel-sm text-pastel-brown">
+            🛋️ Marketing Exec @ h+ haus
+          </span>
+          <span class="px-3 py-1 bg-pastel-mint border-2 border-pastel-brown rounded-md shadow-pixel-sm text-pastel-brown">
+            🎓 Student @ Foreign Trade University
+          </span>
+        </div>
+
+        <!-- Intro Text -->
+        <p class="text-pastel-brown/90 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
+          Undergraduate majoring in <strong class="text-pastel-terracotta font-semibold">International Economics (Advanced Program taught in English)</strong> at Foreign Trade University (FTU). Energetic and ambitious, with hands-on experience in <strong class="text-pastel-brown font-bold">Digital Banking Customer Service at BIDV</strong> and currently serving as a <strong class="text-pastel-brown font-bold">Marketing Executive</strong> for premium furniture design brand <strong class="text-pastel-terracotta font-bold">h+ haus</strong>.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+          <a href="#experience" class="pixel-btn px-6 py-3.5 rounded-md bg-pastel-terracotta text-white font-pixel text-xs flex items-center space-x-2">
+            <span>EXPLORE QUESTS</span>
+            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+          </a>
+          <a href="#contact" class="pixel-btn px-6 py-3.5 rounded-md bg-pastel-yellow text-pastel-brown font-pixel text-xs flex items-center space-x-2">
+            <span>GET IN TOUCH</span>
+            <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+        <!-- Mario Inventory / Stat Box -->
+        <div class="pt-6">
+          <div class="pixel-box bg-white/80 p-4 max-w-lg mx-auto lg:mx-0 grid grid-cols-3 gap-3 text-center">
+            <div class="border-r-2 border-pastel-brown/30 pr-2">
+              <div class="font-pixel text-xs text-pastel-terracotta">BIDV</div>
+              <div class="text-[11px] font-bold text-pastel-brown mt-1">Digital Banking</div>
+            </div>
+            <div class="border-r-2 border-pastel-brown/30 pr-2">
+              <div class="font-pixel text-xs text-pastel-terracotta">h+ haus</div>
+              <div class="text-[11px] font-bold text-pastel-brown mt-1">Marketing Exec</div>
+            </div>
+            <div>
+              <div class="font-pixel text-xs text-pastel-terracotta">7.5</div>
+              <div class="text-[11px] font-bold text-pastel-brown mt-1">IELTS Academic</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Visual Column (Pixel Frame Photo) -->
+      <div class="lg:col-span-5 flex justify-center relative">
+        
+        <!-- Floating Mario Bricks & Question Blocks -->
+        <div class="absolute -top-6 -left-6 z-20 animate-box-bump">
+          <div class="w-10 h-10 bg-pastel-yellow border-3 border-pastel-brown rounded-md shadow-pixel font-pixel text-xs flex items-center justify-center font-bold text-pastel-brown">
+            ?
+          </div>
+        </div>
+        <div class="absolute -top-6 -left-16 z-10 hidden sm:block">
+          <div class="w-10 h-10 bg-pastel-brick border-3 border-pastel-brown rounded-md shadow-pixel"></div>
+        </div>
+        <div class="absolute -bottom-4 -right-4 z-20 animate-star">
+          <div class="px-2.5 py-1.5 bg-pastel-mint border-3 border-pastel-brown rounded-md shadow-pixel font-pixel text-[10px] text-pastel-brown flex items-center gap-1 font-bold">
+            <span>⭐ LEVEL UP!</span>
+          </div>
+        </div>
+
+        <!-- Main Photo Frame in 8-Bit Pixel Game Console Style -->
+        <div class="pixel-box-lg bg-pastel-peach p-3 max-w-xs sm:max-w-sm w-full relative">
+          
+          <!-- Game Console Top Border -->
+          <div class="flex items-center justify-between pb-2 px-1 border-b-2 border-pastel-brown mb-2 font-pixel text-[9px] text-pastel-brown">
+            <span class="flex items-center gap-1">
+              <span class="w-2 h-2 bg-pastel-terracotta border border-pastel-brown rounded-full"></span>
+              PORTFOLIO.EXE
+            </span>
+            <span>BATTERY 100%</span>
+          </div>
+
+          <!-- Real Photo Container -->
+          <div class="relative overflow-hidden rounded-md border-3 border-pastel-brown bg-pastel-lavender">
+            <img 
+              src="assets/images/hero-portrait.jpg" 
+              alt="Dinh Huong Linh" 
+              class="w-full h-80 sm:h-96 object-cover object-center filter contrast-[1.03]"
+            >
+            
+            <!-- Bottom Text Overlay -->
+            <div class="absolute bottom-2 left-2 right-2 bg-pastel-cream/95 border-2 border-pastel-brown p-2 rounded shadow-pixel-sm text-center">
+              <p class="font-pixel text-[10px] text-pastel-terracotta font-bold">★ DINH HUONG LINH ★</p>
+              <p class="text-[11px] font-sans font-semibold text-pastel-brown">FTU &bull; Class 63 &bull; Hanoi, Vietnam</p>
+            </div>
+          </div>
+
+          <!-- Console Bottom Controls Decor -->
+          <div class="pt-3 flex items-center justify-between px-2">
+            <!-- D-Pad -->
+            <div class="relative w-8 h-8 flex items-center justify-center">
+              <div class="w-8 h-2.5 bg-pastel-brown rounded-xs"></div>
+              <div class="w-2.5 h-8 bg-pastel-brown rounded-xs absolute"></div>
+            </div>
+            <!-- Action Buttons A & B -->
+            <div class="flex space-x-2">
+              <div class="w-5 h-5 bg-pastel-terracotta border-2 border-pastel-brown rounded-full flex items-center justify-center font-pixel text-[7px] text-white font-bold">B</div>
+              <div class="w-5 h-5 bg-pastel-yellow border-2 border-pastel-brown rounded-full flex items-center justify-center font-pixel text-[7px] text-pastel-brown font-bold">A</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ==================== ABOUT & EDUCATION ==================== -->
+    <section id="about" class="py-16 border-t-4 border-pastel-brown">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="inline-block px-3 py-1 bg-pastel-yellow border-2 border-pastel-brown rounded font-pixel text-[10px] text-pastel-brown shadow-pixel-sm mb-2">
+          PLAYER PROFILE
+        </span>
+        <h2 class="font-pixel text-xl sm:text-2xl text-pastel-brown">ABOUT ME & EDUCATION</h2>
+        <div class="flex items-center justify-center gap-1 mt-3">
+          <span class="w-3 h-3 bg-pastel-terracotta border border-pastel-brown"></span>
+          <span class="w-8 h-1 bg-pastel-brown"></span>
+          <span class="w-3 h-3 bg-pastel-yellow border border-pastel-brown"></span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Bio Card -->
+        <div class="lg:col-span-5 pixel-box bg-pastel-lavender p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="w-10 h-10 bg-white border-2 border-pastel-brown rounded-md flex items-center justify-center font-pixel text-lg shadow-pixel-sm">
+                🍄
+              </div>
+              <div>
+                <h3 class="font-pixel text-xs sm:text-sm text-pastel-brown">CHARACTER BIO</h3>
+                <span class="font-pixelAlt text-xs text-pastel-terracotta font-bold">About the Adventurer</span>
+              </div>
+            </div>
+            
+            <p class="text-pastel-brown text-sm leading-relaxed mb-4">
+              I am an undergraduate student at <strong class="text-pastel-dark font-bold">Foreign Trade University (FTU)</strong>, enrolled in the High-Quality Program completely delivered in English.
+            </p>
+            <p class="text-pastel-brown text-sm leading-relaxed">
+              I thrive at the intersection of quantitative acumen from <strong class="text-pastel-terracotta font-semibold">Banking & Finance</strong> and strategic storytelling in <strong class="text-pastel-terracotta font-semibold">Brand Marketing & Creative Operations</strong>.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t-2 border-pastel-brown/30 grid grid-cols-2 gap-3 text-xs">
+            <div class="bg-white/70 p-2.5 rounded border border-pastel-brown">
+              <span class="text-[10px] font-pixel text-pastel-terracotta block">ACADEMIC YEAR</span>
+              <span class="font-bold text-pastel-brown">Cohort 63 (2024 - 2028)</span>
+            </div>
+            <div class="bg-white/70 p-2.5 rounded border border-pastel-brown">
+              <span class="text-[10px] font-pixel text-pastel-terracotta block">LANGUAGES</span>
+              <span class="font-bold text-pastel-brown">IELTS 7.5 &bull; Chinese</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic Timeline Cards -->
+        <div id="education" class="lg:col-span-7 space-y-6">
+          
+          <!-- FTU Card -->
+          <div class="pixel-box bg-white p-6 sm:p-7 relative group">
+            <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+              <div>
+                <span class="px-2.5 py-0.5 bg-pastel-mint border border-pastel-brown font-pixel text-[9px] text-pastel-brown rounded shadow-pixel-sm">
+                  HONORS PROGRAM &bull; TAUGHT IN ENGLISH
+                </span>
+                <h4 class="font-pixel text-sm sm:text-base text-pastel-brown mt-2">FOREIGN TRADE UNIVERSITY (FTU)</h4>
+                <p class="text-xs text-pastel-brown/80 font-medium mt-1">Major: International Economics (High-Quality Curriculum)</p>
+              </div>
+              <span class="px-2.5 py-1 bg-pastel-peach border-2 border-pastel-brown rounded font-pixel text-[10px] text-pastel-brown shadow-pixel-sm">
+                2024 &mdash; PRESENT
+              </span>
+            </div>
+
+            <div class="mt-4 pt-4 border-t-2 border-pastel-peach">
+              <div class="text-[11px] font-pixel text-pastel-terracotta mb-2 flex items-center gap-1.5">
+                <span>📚</span> KEY PROFESSIONAL COURSEWORK:
+              </div>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="px-2.5 py-1 bg-pastel-cream border border-pastel-brown rounded font-medium">Financial Theory</span>
+                <span class="px-2.5 py-1 bg-pastel-cream border border-pastel-brown rounded font-medium">Money & Banking</span>
+                <span class="px-2.5 py-1 bg-pastel-cream border border-pastel-brown rounded font-medium">International Investment</span>
+              </div>
+              <p class="text-xs text-pastel-brown/80 mt-3">
+                <strong class="text-pastel-brown">Foundational Subjects:</strong> Macroeconomics, Principles of Accounting, Principles of Marketing, Economics Management.
+              </p>
+            </div>
+          </div>
+
+          <!-- High School Card -->
+          <div class="pixel-box bg-white p-6 relative group">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <span class="px-2.5 py-0.5 bg-pastel-sky border border-pastel-brown font-pixel text-[9px] text-pastel-brown rounded shadow-pixel-sm">
+                  SPECIALIZED HIGH SCHOOL
+                </span>
+                <h4 class="font-pixel text-sm sm:text-base text-pastel-brown mt-2">LUONG VAN TUY HIGH SCHOOL FOR THE GIFTED</h4>
+                <p class="text-xs text-pastel-brown/80 font-medium mt-1">English Major Class 1 (Cohort 63) - Ninh Binh</p>
+              </div>
+              <span class="px-2.5 py-1 bg-pastel-peach border-2 border-pastel-brown rounded font-pixel text-[10px] text-pastel-brown shadow-pixel-sm">
+                2021 &mdash; 2023
+              </span>
+            </div>
+            <p class="text-xs text-pastel-brown/80 mt-3">
+              Cultivated rigorous language proficiency, critical argumentation, teamwork dynamics, and cross-cultural adaptability.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== EXPERIENCE ==================== -->
+    <section id="experience" class="py-16 border-t-4 border-pastel-brown">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="inline-block px-3 py-1 bg-pastel-pink border-2 border-pastel-brown rounded font-pixel text-[10px] text-pastel-brown shadow-pixel-sm mb-2">
+          QUEST LOG & WORK EXP
+        </span>
+        <h2 class="font-pixel text-xl sm:text-2xl text-pastel-brown">PROFESSIONAL EXPERIENCE</h2>
+        <div class="flex items-center justify-center gap-1 mt-3">
+          <span class="w-3 h-3 bg-pastel-mint border border-pastel-brown"></span>
+          <span class="w-8 h-1 bg-pastel-brown"></span>
+          <span class="w-3 h-3 bg-pastel-sky border border-pastel-brown"></span>
+        </div>
+      </div>
+
+      <div class="space-y-8">
+        
+        <!-- Job 1: h+ haus (Current Position) -->
+        <div class="pixel-box-lg bg-pastel-cream p-6 sm:p-8 relative">
+          <div class="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b-2 border-pastel-brown gap-3">
+            <div class="flex items-start space-x-3">
+              <div class="w-12 h-12 bg-pastel-pink border-2 border-pastel-brown rounded-md flex items-center justify-center font-pixel text-xl shadow-pixel-sm flex-shrink-0">
+                🛋️
+              </div>
+              <div>
+                <span class="px-2 py-0.5 bg-pastel-terracotta text-white font-pixel text-[9px] rounded">
+                  CURRENT ROLE
+                </span>
+                <h3 class="font-pixel text-base sm:text-lg text-pastel-brown mt-1">MARKETING EXECUTIVE</h3>
+                <p class="font-pixelAlt text-xs text-pastel-terracotta font-bold">h+ haus &mdash; Premium Furniture & Interior Living Brand</p>
+              </div>
+            </div>
+            <span class="self-start md:self-center px-3 py-1 bg-pastel-yellow border-2 border-pastel-brown rounded font-pixel text-[10px] text-pastel-brown shadow-pixel-sm">
+              PRESENT
+            </span>
+          </div>
+
+          <div class="mt-5 space-y-3 text-sm text-pastel-brown">
+            <div class="flex items-start space-x-2.5">
+              <span class="text-pastel-terracotta font-pixel text-xs mt-0.5">▶</span>
+              <p>
+                <strong class="font-bold text-pastel-dark">Brand Positioning & Content Production:</strong> Plan and execute multi-channel marketing campaigns for h+ haus, crafting compelling visual narratives around contemporary living and interior design aesthetics.
+              </p>
+            </div>
+            <div class="flex items-start space-x-2.5">
+              <span class="text-pastel-terracotta font-pixel text-xs mt-0.5">▶</span>
+              <p>
+                <strong class="font-bold text-pastel-dark">Customer Engagement & Growth:</strong> Monitor performance metrics across digital touchpoints, collaborating closely with architectural design and sales teams to boost brand affinity and conversion rates.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 2: BIDV (Customer Service Intern - Digital Banking) -->
+        <div class="pixel-box-lg bg-pastel-cream p-6 sm:p-8 relative">
+          <div class="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b-2 border-pastel-brown gap-3">
+            <div class="flex items-start space-x-3">
+              <div class="w-12 h-12 bg-pastel-sky border-2 border-pastel-brown rounded-md flex items-center justify-center font-pixel text-xl shadow-pixel-sm flex-shrink-0">
+                🏦
+              </div>
+              <div>
+                <span class="px-2 py-0.5 bg-pastel-sky border border-pastel-brown text-pastel-brown font-pixel text-[9px] rounded">
+                  BANKING SECTOR &bull; INTERNSHIP
+                </span>
+                <h3 class="font-pixel text-base sm:text-lg text-pastel-brown mt-1">CUSTOMER SERVICE INTERN</h3>
+                <p class="font-pixelAlt text-xs text-pastel-terracotta font-bold">Digital Banking Division &mdash; BIDV (Joint Stock Commercial Bank for Investment and Development of Vietnam)</p>
+              </div>
+            </div>
+            <span class="self-start md:self-center px-3 py-1 bg-pastel-peach border-2 border-pastel-brown rounded font-pixel text-[10px] text-pastel-brown shadow-pixel-sm">
+              INTERNSHIP
+            </span>
+          </div>
+
+          <div class="mt-5 space-y-3 text-sm text-pastel-brown">
+            <div class="flex items-start space-x-2.5">
+              <span class="text-pastel-terracotta font-pixel text-xs mt-0.5">▶</span>
+              <p>
+                <strong class="font-bold text-pastel-dark">Digital Banking Advisory:</strong> Assisted and guided clients through features, digital onboarding, and transactional flows on BIDV SmartBanking application with precision, courtesy, and security standards.
+              </p>
+            </div>
+            <div class="flex items-start space-x-2.5">
+              <span class="text-pastel-terracotta font-pixel text-xs mt-0.5">▶</span>
+              <p>
+                <strong class="font-bold text-pastel-dark">User Feedback Analysis:</strong> Consolidated customer inquiries and transaction bottlenecks, compiling structured reports for the digital product team to streamline user experience.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 3: FTU Music Club & Highlight Events with Photos -->
+        <div id="projects" class="pixel-box-lg bg-pastel-yellow/40 p-6 sm:p-8 relative">
+          <div class="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b-2 border-pastel-brown gap-3">
+            <div class="flex items-start space-x-3">
+              <div class="w-12 h-12 bg-pastel-mint border-2 border-pastel-brown rounded-md flex items-center justify-center font-pixel text-xl shadow-pixel-sm flex-shrink-0">
+                🎸
+              </div>
+              <div>
+                <span class="px-2 py-0.5 bg-pastel-mint border border-pastel-brown text-pastel-brown font-pixel text-[9px] rounded">
+                  LEADERSHIP &bull; SPONSORSHIP & EVENTS
+                </span>
+                <h3 class="font-pixel text-base sm:text-lg text-pastel-brown mt-1">HEAD OF ORGANIZING COMMITTEE &bull; EXTERNAL RELATIONS</h3>
+                <p class="font-pixelAlt text-xs text-pastel-terracotta font-bold">FTU Music Club (Mo Xe)</p>
+              </div>
+            </div>
+            <span class="self-start md:self-center px-3 py-1 bg-pastel-peach border-2 border-pastel-brown rounded font-pixel text-[10px] text-pastel-brown shadow-pixel-sm">
+              TENURE 2023 - 2024
+            </span>
+          </div>
+
+          <div class="mt-5 space-y-3 text-sm text-pastel-brown">
+            <div class="flex items-start space-x-2.5">
+              <span class="text-pastel-terracotta font-pixel text-xs mt-0.5">▶</span>
+              <p>
+                <strong class="font-bold text-pastel-dark">Sponsorship Negotiation:</strong> Spearheaded corporate partnerships, pitching and securing high-value sponsorship contracts with premier brands including <strong class="text-pastel-terracotta font-bold">VPBank, MSB, Hada Labo, Eventista, and more</strong>.
+              </p>
+            </div>
+            <div class="flex items-start space-x-2.5">
+              <span class="text-pastel-terracotta font-pixel text-xs mt-0.5">▶</span>
+              <p>
+                <strong class="font-bold text-pastel-dark">Event Production & Execution:</strong> Directed end-to-end event operations for flagship productions: <strong class="text-pastel-dark">Show Debut</strong>, singing competition <strong class="text-pastel-dark">Soul of Melody</strong>, and annual music concert <strong class="text-pastel-dark">Thang #26</strong> with over 500 attendees.
+              </p>
+            </div>
+          </div>
+
+          <!-- 3 Separate Event Productions with Respective Photos -->
+          <div class="mt-6 pt-5 border-t-2 border-pastel-brown/30">
+            <div class="font-pixel text-xs text-pastel-brown mb-5 flex items-center gap-1.5">
+              <span>📸</span> FLAGSHIP EVENT PRODUCTIONS:
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              <!-- Event 1: Soul of Melody -->
+              <div class="pixel-box bg-white p-3 flex flex-col justify-between">
+                <div>
+                  <div class="overflow-hidden rounded border-2 border-pastel-brown h-52 mb-3 bg-pastel-lavender">
+                    <img 
+                      src="assets/images/event-soul-of-melody.jpg" 
+                      alt="Soul of Melody 26" 
+                      class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300"
+                    >
+                  </div>
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-pixel text-[8px] px-1.5 py-0.5 bg-pastel-yellow border border-pastel-brown rounded">COMPETITION</span>
+                    <span class="text-[10px] font-pixel text-pastel-terracotta">SEMI-FINAL & FINAL</span>
+                  </div>
+                  <h4 class="font-pixel text-xs text-pastel-brown mt-1">SOUL OF MELODY 26</h4>
+                  <p class="text-xs text-pastel-brown/80 mt-1.5 leading-relaxed">
+                    Foreign Trade University's most prestigious non-professional singing contest. Coordinated judging panels, stage production, and corporate sponsorship benefits.
+                  </p>
+                </div>
+                <div class="mt-3 pt-2 border-t border-pastel-peach text-[10px] font-pixel text-pastel-brown/70">
+                  ★ Role: Lead Organizer &bull; ER
+                </div>
+              </div>
+
+              <!-- Event 2: Show Debut -->
+              <div class="pixel-box bg-white p-3 flex flex-col justify-between">
+                <div>
+                  <div class="overflow-hidden rounded border-2 border-pastel-brown h-52 mb-3 bg-pastel-peach">
+                    <img 
+                      src="assets/images/event-show-debut.jpg" 
+                      alt="Show Debut 2024" 
+                      class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300"
+                    >
+                  </div>
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-pixel text-[8px] px-1.5 py-0.5 bg-pastel-mint border border-pastel-brown rounded">WELCOME EVENT</span>
+                    <span class="text-[10px] font-pixel text-pastel-terracotta">NEW GENERATION</span>
+                  </div>
+                  <h4 class="font-pixel text-xs text-pastel-brown mt-1">SHOW DEBUT 2024</h4>
+                  <p class="text-xs text-pastel-brown/80 mt-1.5 leading-relaxed">
+                    Official welcoming showcase for Mo Xe's new cohort. Organized comprehensive induction activities, bonding games, and full-scale team rehearsals.
+                  </p>
+                </div>
+                <div class="mt-3 pt-2 border-t border-pastel-peach text-[10px] font-pixel text-pastel-brown/70">
+                  ★ Role: Operations & Logistics
+                </div>
+              </div>
+
+              <!-- Event 3: Thang #26 -->
+              <div class="pixel-box bg-white p-3 flex flex-col justify-between">
+                <div>
+                  <div class="overflow-hidden rounded border-2 border-pastel-brown h-52 mb-3 bg-pastel-sky">
+                    <img 
+                      src="assets/images/event-thang-26.jpg" 
+                      alt="Thang #26 Music Night" 
+                      class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300"
+                    >
+                  </div>
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-pixel text-[8px] px-1.5 py-0.5 bg-pastel-pink border border-pastel-brown rounded">MEGA CONCERT</span>
+                    <span class="text-[10px] font-pixel text-pastel-terracotta">500+ AUDIENCE</span>
+                  </div>
+                  <h4 class="font-pixel text-xs text-pastel-brown mt-1">THANG #26</h4>
+                  <p class="text-xs text-pastel-brown/80 mt-1.5 leading-relaxed">
+                    "Nho Nguoi (Khong) Nho Ta" &mdash; the largest annual concert of Mo Xe. Served as <strong class="text-pastel-dark font-bold">Director</strong>, overseeing stage direction, lighting, logistics, and VIP relations.
+                  </p>
+                </div>
+                <div class="mt-3 pt-2 border-t border-pastel-peach text-[10px] font-pixel text-pastel-brown/70">
+                  ★ Role: Director (Dao Dien)
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 Side-Quests -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="pixel-box bg-white p-6">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-pixel text-[9px] px-2 py-0.5 bg-pastel-peach border border-pastel-brown rounded">SIDE-QUEST 1</span>
+              <span class="text-xs font-semibold text-pastel-brown/70">Part-time</span>
+            </div>
+            <h4 class="font-pixel text-xs sm:text-sm text-pastel-brown">SALES ASSOCIATE</h4>
+            <p class="font-pixelAlt text-xs text-pastel-terracotta font-bold mb-3">NAKED BY V</p>
+            <p class="text-xs text-pastel-brown/90 leading-relaxed">
+              Delivered tailored fashion consultation, handled customer inquiries gracefully, and streamlined in-store retail conversions.
+            </p>
+          </div>
+
+          <div class="pixel-box bg-white p-6">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-pixel text-[9px] px-2 py-0.5 bg-pastel-sky border border-pastel-brown rounded">SIDE-QUEST 2</span>
+              <span class="text-xs font-semibold text-pastel-brown/70">Academic</span>
+            </div>
+            <h4 class="font-pixel text-xs sm:text-sm text-pastel-brown">TALKSHOW ATTENDEE</h4>
+            <p class="font-pixelAlt text-xs text-pastel-terracotta font-bold mb-3">FTU Banking & Securities Club</p>
+            <p class="text-xs text-pastel-brown/90 leading-relaxed">
+              Continuously expanded industry insights into Vietnam's financial and capital markets while building valuable mentor networks.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SKILLS & STATS ==================== -->
+    <section id="skills" class="py-16 border-t-4 border-pastel-brown">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="inline-block px-3 py-1 bg-pastel-mint border-2 border-pastel-brown rounded font-pixel text-[10px] text-pastel-brown shadow-pixel-sm mb-2">
+          ABILITY & POWER-UPS
+        </span>
+        <h2 class="font-pixel text-xl sm:text-2xl text-pastel-brown">SKILLS & LANGUAGES</h2>
+        <div class="flex items-center justify-center gap-1 mt-3">
+          <span class="w-3 h-3 bg-pastel-yellow border border-pastel-brown"></span>
+          <span class="w-8 h-1 bg-pastel-brown"></span>
+          <span class="w-3 h-3 bg-pastel-peach border border-pastel-brown"></span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Soft & Pro Skills with 8-bit Bars -->
+        <div class="pixel-box bg-pastel-lavender/50 p-6">
+          <div class="font-pixel text-xs text-pastel-brown mb-5 flex items-center gap-2">
+            <span>⚡</span> CORE CAPABILITIES
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between font-pixel text-[9px] text-pastel-brown mb-1">
+                <span>DIGITAL BANKING SERVICE</span>
+                <span>95%</span>
+              </div>
+              <div class="h-4 bg-white border-2 border-pastel-brown rounded-xs p-0.5">
+                <div class="h-full bg-pastel-terracotta border-r-2 border-pastel-brown" style="width: 95%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-pixel text-[9px] text-pastel-brown mb-1">
+                <span>BRAND MARKETING & STORYTELLING</span>
+                <span>90%</span>
+              </div>
+              <div class="h-4 bg-white border-2 border-pastel-brown rounded-xs p-0.5">
+                <div class="h-full bg-pastel-sky border-r-2 border-pastel-brown" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-pixel text-[9px] text-pastel-brown mb-1">
+                <span>EVENT MANAGEMENT & SPONSORSHIP</span>
+                <span>92%</span>
+              </div>
+              <div class="h-4 bg-white border-2 border-pastel-brown rounded-xs p-0.5">
+                <div class="h-full bg-pastel-mint border-r-2 border-pastel-brown" style="width: 92%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-pixel text-[9px] text-pastel-brown mb-1">
+                <span>TEAM LEADERSHIP & NEGOTIATION</span>
+                <span>88%</span>
+              </div>
+              <div class="h-4 bg-white border-2 border-pastel-brown rounded-xs p-0.5">
+                <div class="h-full bg-pastel-yellow border-r-2 border-pastel-brown" style="width: 88%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Office Computing Tools -->
+        <div class="pixel-box bg-pastel-peach/50 p-6">
+          <div class="font-pixel text-xs text-pastel-brown mb-5 flex items-center gap-2">
+            <span>💾</span> PRODUCTIVITY SUITE
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <div class="pixel-box bg-white p-3 flex items-center justify-between">
+              <div class="flex items-center space-x-2.5">
+                <span class="w-7 h-7 bg-blue-100 border border-pastel-brown rounded flex items-center justify-center font-bold text-blue-700">W</span>
+                <div>
+                  <div class="font-bold text-pastel-brown">Microsoft Word</div>
+                  <div class="text-[10px] text-pastel-brown/70">Proposals, formal documentation</div>
+                </div>
+              </div>
+              <span class="font-pixel text-[8px] px-1.5 py-0.5 bg-pastel-mint border border-pastel-brown rounded">ADVANCED</span>
+            </div>
+
+            <div class="pixel-box bg-white p-3 flex items-center justify-between">
+              <div class="flex items-center space-x-2.5">
+                <span class="w-7 h-7 bg-emerald-100 border border-pastel-brown rounded flex items-center justify-center font-bold text-emerald-700">X</span>
+                <div>
+                  <div class="font-bold text-pastel-brown">Microsoft Excel</div>
+                  <div class="text-[10px] text-pastel-brown/70">Data tracking & calculations</div>
+                </div>
+              </div>
+              <span class="font-pixel text-[8px] px-1.5 py-0.5 bg-pastel-sky border border-pastel-brown rounded">PRO</span>
+            </div>
+
+            <div class="pixel-box bg-white p-3 flex items-center justify-between">
+              <div class="flex items-center space-x-2.5">
+                <span class="w-7 h-7 bg-orange-100 border border-pastel-brown rounded flex items-center justify-center font-bold text-orange-700">P</span>
+                <div>
+                  <div class="font-bold text-pastel-brown">PowerPoint</div>
+                  <div class="text-[10px] text-pastel-brown/70">Sponsorship decks & pitches</div>
+                </div>
+              </div>
+              <span class="font-pixel text-[8px] px-1.5 py-0.5 bg-pastel-pink border border-pastel-brown rounded">CREATIVE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="pixel-box bg-pastel-mint/50 p-6">
+          <div class="font-pixel text-xs text-pastel-brown mb-5 flex items-center gap-2">
+            <span>🌐</span> LANGUAGES
+          </div>
+
+          <div class="space-y-4">
+            <div class="pixel-box bg-white p-3.5">
+              <div class="flex items-center justify-between mb-1.5">
+                <div class="flex items-center gap-1.5 font-bold text-pastel-brown text-sm">
+                  <span>🇬🇧</span> English
+                </div>
+                <span class="font-pixel text-[9px] px-2 py-0.5 bg-pastel-terracotta text-white rounded">
+                  IELTS 7.5
+                </span>
+              </div>
+              <p class="text-[11px] text-pastel-brown/80 leading-relaxed">
+                Full academic and professional fluency; 100% English curriculum at FTU, comfortable with international finance terminology.
+              </p>
+            </div>
+
+            <div class="pixel-box bg-white p-3.5">
+              <div class="flex items-center justify-between mb-1.5">
+                <div class="flex items-center gap-1.5 font-bold text-pastel-brown text-sm">
+                  <span>🇨🇳</span> Chinese
+                </div>
+                <span class="font-pixel text-[9px] px-2 py-0.5 bg-pastel-yellow border border-pastel-brown rounded">
+                  BASIC
+                </span>
+              </div>
+              <p class="text-[11px] text-pastel-brown/80 leading-relaxed">
+                Basic daily communication proficiency with active study towards cross-border commerce applications.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== PERSONAL INTERESTS (TRAVEL & CONCERTS) ==================== -->
+    <section id="interests" class="py-16 border-t-4 border-pastel-brown">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="inline-block px-3 py-1 bg-pastel-yellow border-2 border-pastel-brown rounded font-pixel text-[10px] text-pastel-brown shadow-pixel-sm mb-2">
+          FREE-ROAM MODE &bull; PASSIONS
+        </span>
+        <h2 class="font-pixel text-xl sm:text-2xl text-pastel-brown">PERSONAL INTERESTS</h2>
+        <div class="flex items-center justify-center gap-1 mt-3">
+          <span class="w-3 h-3 bg-pastel-mint border border-pastel-brown"></span>
+          <span class="w-8 h-1 bg-pastel-brown"></span>
+          <span class="w-3 h-3 bg-pastel-pink border border-pastel-brown"></span>
+        </div>
+      </div>
+
+      <div class="space-y-8">
+        
+        <!-- Interest 1: Live Music Concerts (2 Previous Photos moved here) -->
+        <div class="pixel-box-lg bg-pastel-cream p-6 sm:p-8">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b-2 border-pastel-brown/30">
+            <div class="space-y-2 max-w-2xl">
+              <div class="flex items-center gap-2">
+                <span class="w-8 h-8 bg-pastel-pink border-2 border-pastel-brown rounded flex items-center justify-center font-pixel text-sm">
+                  🎤
+                </span>
+                <span class="font-pixel text-xs sm:text-sm text-pastel-brown">LIVE CONCERTS & MUSIC FESTIVALS</span>
+              </div>
+              <p class="text-xs sm:text-sm text-pastel-brown/90 leading-relaxed">
+                Immersing in the high-voltage atmosphere of live music concerts, feeling the shared energy of the crowd, and drawing boundless creative inspiration from stage performances, visual lighting, and sound design.
+              </p>
+              <div class="pt-1 flex flex-wrap gap-2 text-xs font-semibold">
+                <span class="px-2.5 py-1 bg-white border border-pastel-brown rounded shadow-pixel-sm">
+                  ⚡ Live Stage Energy
+                </span>
+                <span class="px-2.5 py-1 bg-white border border-pastel-brown rounded shadow-pixel-sm">
+                  🎵 Visual & Sound Production
+                </span>
+                <span class="px-2.5 py-1 bg-white border border-pastel-brown rounded shadow-pixel-sm">
+                  🌟 Cultural Connection
+                </span>
+              </div>
+            </div>
+            <span class="self-start lg:self-center px-3 py-1 bg-pastel-yellow border-2 border-pastel-brown rounded font-pixel text-[10px] text-pastel-brown shadow-pixel-sm whitespace-nowrap">
+              CONCERT LOVER
+            </span>
+          </div>
+
+          <!-- 2 Full Vertical Portrait Concert Photos -->
+          <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Concert Photo 1: Glowstick Vertical -->
+            <div class="pixel-box bg-white p-2.5 flex flex-col justify-between">
+              <div class="h-[28rem] sm:h-[36rem] w-full overflow-hidden rounded border-2 border-pastel-brown relative bg-pastel-lavender/30 flex items-center justify-center">
+                <img 
+                  src="assets/images/event-music.jpg" 
+                  alt="Huong Linh at Live Concert" 
+                  class="w-full h-full object-contain hover:scale-102 transition-transform duration-300"
+                >
+                <div class="absolute bottom-2 left-2 right-2 bg-pastel-cream/95 border-2 border-pastel-brown py-1 px-2 text-center rounded shadow-pixel-sm">
+                  <span class="font-pixel text-[9px] text-pastel-terracotta">★ GLOWSTICK NIGHT & FESTIVAL VIBES ★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Concert Photo 2: Stage & Screen Vertical -->
+            <div class="pixel-box bg-white p-2.5 flex flex-col justify-between">
+              <div class="h-[28rem] sm:h-[36rem] w-full overflow-hidden rounded border-2 border-pastel-brown relative bg-pastel-peach/30 flex items-center justify-center">
+                <img 
+                  src="assets/images/event-concert.jpg" 
+                  alt="Live Concert Crowd & Stage" 
+                  class="w-full h-full object-contain hover:scale-102 transition-transform duration-300"
+                >
+                <div class="absolute bottom-2 left-2 right-2 bg-pastel-cream/95 border-2 border-pastel-brown py-1 px-2 text-center rounded shadow-pixel-sm">
+                  <span class="font-pixel text-[9px] text-pastel-terracotta">★ CONCERT MEMORIES & STAGE LIGHTS ★</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interest 2: Traveling (Korea Photo) -->
+        <div class="pixel-box-lg bg-gradient-to-r from-pastel-peach via-pastel-cream to-pastel-sky p-6 sm:p-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-7 space-y-4">
+              <div class="flex items-center gap-2">
+                <span class="w-8 h-8 bg-pastel-mint border-2 border-pastel-brown rounded flex items-center justify-center font-pixel text-sm">
+                  ✈️
+                </span>
+                <span class="font-pixel text-xs sm:text-sm text-pastel-brown">TRAVELING & CULTURAL DISCOVERY</span>
+              </div>
+              <p class="text-pastel-brown text-sm leading-relaxed">
+                "Exploring new destinations, experiencing diverse cultures, and discovering creative inspiration on the road. Every voyage offers fresh perspectives on people, architectural spaces, and a renewed zest for learning."
+              </p>
+              
+              <div class="pt-1 flex flex-wrap gap-2 text-xs font-semibold">
+                <span class="px-3 py-1 bg-white border-2 border-pastel-brown rounded shadow-pixel-sm">
+                  🧭 Cultural Exploration
+                </span>
+                <span class="px-3 py-1 bg-white border-2 border-pastel-brown rounded shadow-pixel-sm">
+                  📸 Photography & Memories
+                </span>
+                <span class="px-3 py-1 bg-white border-2 border-pastel-brown rounded shadow-pixel-sm">
+                  ✨ Creative Recharging
+                </span>
+              </div>
+            </div>
+
+            <!-- Real Travel Photo with Mario Decor Frame -->
+            <div class="lg:col-span-5 flex justify-center">
+              <div class="pixel-box bg-white p-2.5 max-w-xs w-full rotate-1 hover:rotate-0 transition-transform">
+                <div class="h-72 overflow-hidden rounded border-2 border-pastel-brown relative">
+                  <img 
+                    src="assets/images/travel.jpg" 
+                    alt="Dinh Huong Linh Travel" 
+                    class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+                  >
+                  <div class="absolute bottom-2 left-2 right-2 bg-pastel-cream/95 border-2 border-pastel-brown py-1 px-2 text-center rounded">
+                    <span class="font-pixel text-[9px] text-pastel-terracotta">★ WANDERLUST IN KOREA ★</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT FORM ==================== -->
+    <section id="contact" class="py-16 border-t-4 border-pastel-brown">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="inline-block px-3 py-1 bg-pastel-yellow border-2 border-pastel-brown rounded font-pixel text-[10px] text-pastel-brown shadow-pixel-sm mb-2">
+          WARP PIPE / CONNECT
+        </span>
+        <h2 class="font-pixel text-xl sm:text-2xl text-pastel-brown">GET IN TOUCH</h2>
+        <div class="flex items-center justify-center gap-1 mt-3">
+          <span class="w-3 h-3 bg-pastel-terracotta border border-pastel-brown"></span>
+          <span class="w-8 h-1 bg-pastel-brown"></span>
+          <span class="w-3 h-3 bg-pastel-mint border border-pastel-brown"></span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Channels Box -->
+        <div class="lg:col-span-5 space-y-4">
+          <a href="tel:0367099111" class="pixel-btn block p-4 bg-pastel-cream rounded-md flex items-center space-x-3">
+            <div class="w-10 h-10 bg-pastel-mint border-2 border-pastel-brown rounded flex items-center justify-center font-pixel text-sm">
+              📞
+            </div>
+            <div>
+              <div class="font-pixel text-[10px] text-pastel-terracotta">PHONE / ZALO</div>
+              <div class="font-bold text-pastel-brown text-base">0367 099 111</div>
+            </div>
+          </a>
+
+          <a href="mailto:dinhhuonglinh44@gmail.com" class="pixel-btn block p-4 bg-pastel-cream rounded-md flex items-center space-x-3">
+            <div class="w-10 h-10 bg-pastel-peach border-2 border-pastel-brown rounded flex items-center justify-center font-pixel text-sm">
+              ✉️
+            </div>
+            <div>
+              <div class="font-pixel text-[10px] text-pastel-terracotta">EMAIL</div>
+              <div class="font-bold text-pastel-brown text-sm break-all">dinhhuonglinh44@gmail.com</div>
+            </div>
+          </a>
+
+          <div class="pixel-box p-4 bg-pastel-cream rounded-md flex items-center space-x-3">
+            <div class="w-10 h-10 bg-pastel-sky border-2 border-pastel-brown rounded flex items-center justify-center font-pixel text-sm">
+              💬
+            </div>
+            <div>
+              <div class="font-pixel text-[10px] text-pastel-terracotta">SOCIAL</div>
+              <div class="font-bold text-pastel-brown text-base">Facebook: Huong Linh</div>
+            </div>
+          </div>
+
+          <div class="pixel-box p-4 bg-pastel-lavender/60 text-xs text-pastel-brown leading-relaxed">
+            <div class="font-pixel text-[9px] text-pastel-terracotta mb-1 flex items-center gap-1">
+              <span>📍</span> LOCATION
+            </div>
+            Hanoi, Vietnam &bull; Foreign Trade University (FTU).
+          </div>
+        </div>
+
+        <!-- Interactive Form -->
+        <div class="lg:col-span-7 pixel-box-lg bg-white p-6 sm:p-8">
+          <div class="font-pixel text-xs text-pastel-brown mb-2">SEND MESSAGE &bull; DIRECT CONTACT</div>
+          <p class="text-xs text-pastel-brown/70 mb-5">Fill in the fields below, and I will get back to you promptly!</p>
+
+          <form id="contact-form" class="space-y-4" onsubmit="event.preventDefault(); handleFormSubmit();">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-pixel text-[9px] text-pastel-brown mb-1.5">YOUR NAME *</label>
+                <input type="text" required placeholder="Mario / Recruiter" class="w-full px-3 py-2.5 border-2 border-pastel-brown rounded text-xs bg-pastel-cream focus:bg-white focus:outline-none">
+              </div>
+              <div>
+                <label class="block font-pixel text-[9px] text-pastel-brown mb-1.5">YOUR EMAIL *</label>
+                <input type="email" required placeholder="visitor@example.com" class="w-full px-3 py-2.5 border-2 border-pastel-brown rounded text-xs bg-pastel-cream focus:bg-white focus:outline-none">
+              </div>
+            </div>
+
+            <div>
+              <label class="block font-pixel text-[9px] text-pastel-brown mb-1.5">SUBJECT</label>
+              <input type="text" placeholder="Internship Opportunity / Project Collaboration" class="w-full px-3 py-2.5 border-2 border-pastel-brown rounded text-xs bg-pastel-cream focus:bg-white focus:outline-none">
+            </div>
+
+            <div>
+              <label class="block font-pixel text-[9px] text-pastel-brown mb-1.5">MESSAGE *</label>
+              <textarea rows="3" required placeholder="Your message here..." class="w-full px-3 py-2.5 border-2 border-pastel-brown rounded text-xs bg-pastel-cream focus:bg-white focus:outline-none resize-none"></textarea>
+            </div>
+
+            <button type="submit" class="pixel-btn px-6 py-3 bg-pastel-terracotta text-white font-pixel text-xs rounded flex items-center space-x-2">
+              <span>SEND MESSAGE</span>
+              <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            </button>
+            <div id="form-feedback" class="hidden text-xs font-bold text-emerald-800 bg-pastel-mint border-2 border-pastel-brown p-3 rounded shadow-pixel-sm">
+              ✨ Thank you! Your message has been received. I will reply to you as soon as possible!
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t-4 border-pastel-brown bg-pastel-peach/70 py-8 mt-12 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-pixel text-[10px] text-pastel-brown text-center sm:text-left">
+      <div>
+        ★ DINH HUONG LINH &bull; 2026 ★
+      </div>
+      <div>
+        THANKS FOR PLAYING! GAME OVER? NO, JUST BEGINNING.
+      </div>
+      <div class="flex items-center space-x-3">
+        <a href="#about" class="hover:text-pastel-terracotta">TOP</a>
+        <a href="#experience" class="hover:text-pastel-terracotta">QUESTS</a>
+        <a href="#contact" class="hover:text-pastel-terracotta">CONNECT</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    lucide.createIcons();
+
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    function handleFormSubmit() {
+      const feedback = document.getElementById('form-feedback');
+      feedback.classList.remove('hidden');
+      document.getElementById('contact-form').reset();
+      setTimeout(() => {
+        feedback.classList.add('hidden');
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
